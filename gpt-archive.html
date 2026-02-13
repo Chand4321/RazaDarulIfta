@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | Raza Darul Ifta wal Qaza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --emerald-900: #064e3b;
+            --gold-600: #b45309;
+            --cream: #fffbeb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .archive-card {
+            transition: opacity .3s ease, transform .3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        mark {
+            background: #fde68a;
+            padding: 0 2px;
+        }
+    </style>
+</head>
+
+<body class="text-emerald-950">
+
+    <!-- ================= CONTENT SAME AS YOURS ================= -->
+
+    <!-- I AM SKIPPING NAV FOR BREVITY - KEEP YOUR ORIGINAL NAV -->
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="bg-emerald-900 text-white py-16 px-6 text-center relative overflow-hidden">
+        <div class="relative z-10">
+            <h1 class="heading-font text-4xl md:text-5xl mb-4 text-amber-100">The Knowledge Repository</h1>
+
+            <div class="mt-8 max-w-xl mx-auto flex bg-white rounded-full p-2 shadow-2xl">
+                <input id="searchInput" type="text" placeholder="Search by keyword, Mas'ala, or Fatwa ID..."
+                    class="w-full px-6 py-3 rounded-full text-emerald-900 focus:outline-none">
+                <button id="searchBtn"
+                    class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full transition">
+                    Search
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+        <!-- ============= CATEGORY SIDEBAR (AUTO GENERATED) ============= -->
+        <aside class="lg:col-span-1">
+            <div class="sticky top-24">
+                <h3 class="font-bold text-emerald-900 uppercase mb-6 border-b-2 border-amber-500 inline-block">
+                    Categories</h3>
+                <ul id="categoryList" class="space-y-3"></ul>
+            </div>
+        </aside>
+
+        <!-- ============= POSTS AREA ============= -->
+        <div class="lg:col-span-3 space-y-6">
+
+            <div class="flex justify-between items-center mb-8 border-b pb-4">
+                <p id="resultsCount" class="text-sm text-emerald-700 font-medium tracking-wide"></p>
+
+                <select id="sortSelect" class="bg-transparent text-sm cursor-pointer text-emerald-800">
+                    <option value="newest">Sort by: Newest First</option>
+                    <option value="oldest">Sort by: Oldest First</option>
+                    <option value="views">Most Viewed</option>
+                </select>
+            </div>
+
+            <div id="postsContainer" class="space-y-6">
+
+                <!-- SAMPLE POSTS (ADD data-category TO ALL POSTS) -->
+
+                <article class="archive-card bg-white p-8 rounded-lg shadow-sm" data-category="Kitab al-Salah"
+                    data-date="2026-02-12" data-views="150">
+                    <div>
+                        <span>ID: 8842</span>
+                        <h2 class="heading-font text-2xl mt-2">
+                            The use of alcohol-based perfumes in Salah
+                        </h2>
+                        <p class="text-sm mt-2">
+                            Is it permissible to apply perfumes that contain synthetic alcohol?
+                        </p>
+                    </div>
+                </article>
+
+                <article class="archive-card bg-white p-8 rounded-lg shadow-sm" data-category="Modern Finance"
+                    data-date="2026-02-10" data-views="230">
+                    <div>
+                        <span>ID: 8839</span>
+                        <h2 class="heading-font text-2xl mt-2">
+                            Digital inheritance and social media accounts
+                        </h2>
+                        <p class="text-sm mt-2">
+                            How should digital assets like YouTube channels be distributed?
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div id="pagination" class="pt-12 flex justify-center gap-2"></div>
+
+        </div>
+    </main>
+
+    <!-- ================= ADVANCED JS SYSTEM ================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ================= STATE ================= */
+
+            const state = {
+                allPosts: Array.from(document.querySelectorAll(".archive-card")),
+                filteredPosts: [],
+                currentPage: 1,
+                postsPerPage: 6,
+                searchQuery: '',
+                activeCategories: new Set(),
+                sortBy: 'newest'
+            };
+
+            /* ================= CACHED SELECTORS ================= */
+
+            const postsContainer = document.getElementById("postsContainer");
+            const pagination = document.getElementById("pagination");
+            const searchInput = document.getElementById("searchInput");
+            const sortSelect = document.getElementById("sortSelect");
+            const categoryList = document.getElementById("categoryList");
+            const resultsCount = document.getElementById("resultsCount");
+
+            /* ================= UTIL ================= */
+
+            const debounce = (fn, delay = 300) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => fn(...args), delay);
+                };
+            };
+
+            /* ================= CATEGORY GENERATION ================= */
+
+            function buildCategories() {
+                const map = {};
+                state.allPosts.forEach(post => {
+                    const cat = post.dataset.category;
+                    map[cat] = (map[cat] || 0) + 1;
+                });
+
+                const fragment = document.createDocumentFragment();
+
+                Object.keys(map).sort().forEach(cat => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" value="${cat}" class="category-checkbox">
+                            <span>${cat} (${map[cat]})</span>
+                        </label>
+                    `;
+                    fragment.appendChild(li);
+                });
+
+                categoryList.appendChild(fragment);
+            }
+
+            /* ================= FILTERING ================= */
+
+            function applyFilters() {
+
+                state.filteredPosts = state.allPosts.filter(post => {
+
+                    const matchesSearch =
+                        post.innerText.toLowerCase().includes(state.searchQuery);
+
+                    const matchesCategory =
+                        state.activeCategories.size === 0 ||
+                        state.activeCategories.has(post.dataset.category);
+
+                    return matchesSearch && matchesCategory;
+                });
+
+                applySorting();
+                render();
+                syncURL();
+                savePreferences();
+            }
+
+            /* ================= SORTING ================= */
+
+            function applySorting() {
+
+                if (state.sortBy === "newest") {
+                    state.filteredPosts.sort((a, b) =>
+                        new Date(b.dataset.date) - new Date(a.dataset.date));
+                }
+
+                if (state.sortBy === "oldest") {
+                    state.filteredPosts.sort((a, b) =>
+                        new Date(a.dataset.date) - new Date(b.dataset.date));
+                }
+
+                if (state.sortBy === "views") {
+                    state.filteredPosts.sort((a, b) =>
+                        b.dataset.views - a.dataset.views);
+                }
+            }
+
+            /* ================= RENDER ================= */
+
+            function render() {
+
+                const start = (state.currentPage - 1) * state.postsPerPage;
+                const end = start + state.postsPerPage;
+
+                state.allPosts.forEach(p => p.style.display = "none");
+
+                state.filteredPosts.slice(start, end).forEach(post => {
+                    post.style.display = "block";
+                });
+
+                resultsCount.textContent =
+                    `Showing ${state.filteredPosts.length} Fatwas`;
+
+                renderPagination();
+                highlightSearch();
+                injectStructuredData();
+            }
+
+            /* ================= PAGINATION ================= */
+
+            function renderPagination() {
+
+                pagination.innerHTML = "";
+                const totalPages = Math.ceil(state.filteredPosts.length / state.postsPerPage);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement("button");
+                    btn.textContent = i;
+                    btn.className = "px-3 py-1 border";
+                    if (i === state.currentPage) btn.classList.add("bg-emerald-900", "text-white");
+
+                    btn.addEventListener("click", () => {
+                        state.currentPage = i;
+                        render();
+                        history.pushState({}, '', updateQueryString());
+                    });
+
+                    pagination.appendChild(btn);
+                }
+            }
+
+            /* ================= SEARCH HIGHLIGHT ================= */
+
+            function highlightSearch() {
+
+                if (!state.searchQuery) return;
+
+                state.filteredPosts.forEach(post => {
+                    post.innerHTML = post.innerHTML.replace(
+                        new RegExp(state.searchQuery, "gi"),
+                        match => `<mark>${match}</mark>`
+                    );
+                });
+            }
+
+            /* ================= URL STATE ================= */
+
+            function updateQueryString() {
+                const params = new URLSearchParams();
+                if (state.searchQuery) params.set("q", state.searchQuery);
+                if (state.sortBy) params.set("sort", state.sortBy);
+                if (state.currentPage > 1) params.set("page", state.currentPage);
+                if (state.activeCategories.size)
+                    params.set("cat", Array.from(state.activeCategories).join(","));
+                return "?" + params.toString();
+            }
+
+            function syncURL() {
+                history.replaceState({}, '', updateQueryString());
+            }
+
+            /* ================= LOCAL STORAGE ================= */
+
+            function savePreferences() {
+                localStorage.setItem("archiveState", JSON.stringify({
+                    sortBy: state.sortBy
+                }));
+            }
+
+            function loadPreferences() {
+                const saved = JSON.parse(localStorage.getItem("archiveState"));
+                if (saved) state.sortBy = saved.sortBy;
+            }
+
+            /* ================= STRUCTURED DATA ================= */
+
+            function injectStructuredData() {
+
+                const data = {
+                    "@context": "https://schema.org",
+                    "@type": "ItemList",
+                    "itemListElement": state.filteredPosts.map((post, index) => ({
+                        "@type": "ListItem",
+                        "position": index + 1,
+                        "name": post.querySelector("h2").innerText
+                    }))
+                };
+
+                let script = document.getElementById("structuredData");
+                if (script) script.remove();
+
+                script = document.createElement("script");
+                script.type = "application/ld+json";
+                script.id = "structuredData";
+                script.textContent = JSON.stringify(data);
+                document.head.appendChild(script);
+            }
+
+            /* ================= EVENTS ================= */
+
+            searchInput.addEventListener("input", debounce(e => {
+                state.searchQuery = e.target.value.toLowerCase();
+                state.currentPage = 1;
+                applyFilters();
+            }, 300));
+
+            sortSelect.addEventListener("change", e => {
+                state.sortBy = e.target.value;
+                applyFilters();
+            });
+
+            categoryList.addEventListener("change", e => {
+                if (e.target.classList.contains("category-checkbox")) {
+                    if (e.target.checked)
+                        state.activeCategories.add(e.target.value);
+                    else
+                        state.activeCategories.delete(e.target.value);
+
+                    state.currentPage = 1;
+                    applyFilters();
+                }
+            });
+
+            /* ================= INIT ================= */
+
+            loadPreferences();
+            buildCategories();
+            state.filteredPosts = [...state.allPosts];
+            applySorting();
+            render();
+        });
+    </script>
+
+</body>
+
+</html>

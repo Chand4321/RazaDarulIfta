@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raza Darul Ifta wal Qaza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Nastaliq+Urdu&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --emerald-deep: #064e3b;
+            --gold-classic: #b45309;
+            --cream-soft: #fffbeb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream-soft);
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .urdu-font {
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+
+        /* Traditional Islamic Pattern Overlay */
+        .islamic-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            opacity: 0.04;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+
+        /* Decorative Border */
+        .islamic-border {
+            border: 2px solid var(--gold-classic);
+            position: relative;
+        }
+
+        .islamic-border::before {
+            content: "✦";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cream-soft);
+            padding: 0 10px;
+            color: var(--gold-classic);
+        }
+    </style>
+</head>
+
+<body class="text-emerald-950">
+
+    <div class="islamic-bg"></div>
+
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-[100] border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 py-5 flex justify-between items-center">
+
+            <a href="index.html" class="flex flex-col group">
+                <span
+                    class="text-xl md:text-2xl font-bold heading-font text-emerald-900 tracking-tight transition group-hover:text-emerald-800">
+                    Raza Darul Ifta <span class="text-amber-700">wal Qaza</span>
+                </span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-emerald-600 font-semibold">
+                    Authentic Sunni Jurisprudence
+                </span>
+            </a>
+
+            <div class="hidden md:flex space-x-10 font-medium items-center text-emerald-900">
+                <a href="index.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Home</a>
+                <a href="about.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">About</a>
+                <a href="archive.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Fatwa
+                    Archive</a>
+                <a href="ask-question.html"
+                    class="bg-emerald-800 text-white px-6 py-2.5 rounded-sm hover:bg-emerald-900 transition-all shadow-md active:scale-95">
+                    Ask a Question
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-emerald-900 p-2 focus:outline-none">
+                <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-emerald-100 animate-in slide-in-from-top duration-300">
+            <div class="px-6 pt-2 pb-6 space-y-4 flex flex-col font-medium">
+                <a href="index.html" class="py-2 border-b border-emerald-50 text-emerald-900">Home</a>
+                <a href="about.html" class="py-2 border-b border-emerald-50 text-emerald-900">About</a>
+                <a href="archive.html" class="py-2 border-b border-emerald-50 text-emerald-900">Fatwa Archive</a>
+                <a href="ask-question.html"
+                    class="py-3 px-4 bg-emerald-800 text-white text-center rounded-sm shadow-sm">Ask
+                    a Question</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Optional: Change icon from hamburger to X
+            if (menu.classList.contains('hidden')) {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+            } else {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            }
+        });
+    </script>
+
+    <section id="home"
+        class="relative lg:min-h-[70vh] min-h-[80vh] flex flex-col items-center justify-center text-center px-4 pt-20">
+        <div data-aos="zoom-out" data-aos-duration="1500" class="mb-6">
+            <span class="urdu-font text-3xl text-emerald-800">بسم الله الرحمن الرحيم</span>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="heading-font text-5xl md:text-8xl text-emerald-900 leading-tight">
+                Seeking Clarity, <br> <span class="italic text-amber-700">Finding Peace.</span>
+            </h1>
+            <p class="max-w-xl mx-auto text-lg text-emerald-800/70 mt-6 font-light leading-relaxed">
+                Welcome to Raza Darul Ifta wal Qaza. We provide Fatwa services and judicial guidance rooted in the rich
+                tradition of Sunni scholarship.
+            </p>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 bg-emerald-900 text-cream-soft relative">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <div class="islamic-border p-8 rounded-t-[100px] rounded-b-lg border-opacity-30">
+                    <img src="https://images.unsplash.com/photo-1590076215667-873d32833440?auto=format&fit=crop&q=80&w=800"
+                        alt="Library"
+                        class="rounded-t-[100px] rounded-b-lg grayscale hover:grayscale-0 transition duration-700">
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="heading-font text-4xl mb-6 text-amber-400">About Our Institution</h2>
+                <div class="space-y-4 text-emerald-50/80 leading-relaxed text-lg">
+                    <p>
+                        <span class="font-bold text-white">Raza Darul Ifta wal Qaza</span> serves as a beacon of Shariah
+                        guidance for the Ummah. Our mission is to bridge the gap between classical Fiqh and contemporary
+                        challenges.
+                    </p>
+                    <p>
+                        Led by qualified Muftis, we specialize in Ibaadat, Muamalaat (finance), and Nikah/Talaq matters,
+                        ensuring every response is grounded in the Quran, Sunnah, and the consensus of the Ahlus Sunnah
+                        wal Jama'ah.
+                    </p>
+                    <div class="pt-4">
+                        <ul
+                            class="grid grid-cols-2 gap-4 text-sm font-semibold uppercase tracking-wider text-amber-200">
+                            <li>✦ Verified Fatwas</li>
+                            <li>✦ Qaza Services</li>
+                            <li>✦ Family Counseling</li>
+                            <li>✦ Modern Research</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fatwas" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="heading-font text-4xl text-emerald-900">Latest Fatwa Posts</h2>
+            <p class="text-emerald-700/60 mt-2">Guidance from our recent inquiries</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white border-b-4 border-amber-600 p-8 shadow-sm hover:shadow-2xl transition-all group"
+                data-aos="fade-up" data-aos-delay="100">
+                <div class="text-xs font-bold text-amber-700 mb-3 tracking-widest uppercase">Zakat & Charity</div>
+                <h3 class="heading-font text-xl mb-4 group-hover:text-emerald-700 transition">Calculating Zakat on
+                    Retirement Funds</h3>
+                <p class="text-sm text-gray-600 mb-6">A detailed breakdown on whether 401k and pension funds are subject
+                    to Zakat based on liquidity...</p>
+                <a href="#"
+                    class="text-emerald-800 font-bold text-sm flex items-center group-hover:gap-2 transition-all">
+                    Read Fatwa <span class="ml-1">→</span>
+                </a>
+            </div>
+
+            <div class="bg-white border-b-4 border-amber-600 p-8 shadow-sm hover:shadow-2xl transition-all group"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="text-xs font-bold text-amber-700 mb-3 tracking-widest uppercase">Social Life</div>
+                <h3 class="heading-font text-xl mb-4 group-hover:text-emerald-700 transition">Etiquettes of Social Media
+                    Interaction</h3>
+                <p class="text-sm text-gray-600 mb-6">Guidelines on maintaining Haya and Islamic character in the
+                    digital age according to the Sunnah...</p>
+                <a href="#"
+                    class="text-emerald-800 font-bold text-sm flex items-center group-hover:gap-2 transition-all">
+                    Read Fatwa <span class="ml-1">→</span>
+                </a>
+            </div>
+
+            <div class="bg-white border-b-4 border-amber-600 p-8 shadow-sm hover:shadow-2xl transition-all group"
+                data-aos="fade-up" data-aos-delay="300">
+                <div class="text-xs font-bold text-amber-700 mb-3 tracking-widest uppercase">Inheritance</div>
+                <h3 class="heading-font text-xl mb-4 group-hover:text-emerald-700 transition">Distribution of Estate
+                    among Daughters</h3>
+                <p class="text-sm text-gray-600 mb-6">Understanding the specific shares of female heirs when no male
+                    siblings are present in the lineage...</p>
+                <a href="#"
+                    class="text-emerald-800 font-bold text-sm flex items-center group-hover:gap-2 transition-all">
+                    Read Fatwa <span class="ml-1">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-emerald-950 text-emerald-200/50 py-12 px-6 border-t border-emerald-900">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <h3 class="heading-font text-2xl text-white">Raza Darul Ifta wal Qaza</h3>
+                <p class="text-sm mt-1">Preserving Tradition, Guiding the Future.</p>
+            </div>
+            <div class="mt-8 md:mt-0 space-x-6 text-sm uppercase tracking-widest">
+                <a href="#" class="hover:text-white transition">Privacy</a>
+                <a href="#" class="hover:text-white transition">Terms</a>
+                <a href="#" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 120,
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | Raza Darul Ifta wal Qaza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --emerald-900: #064e3b;
+            --gold-600: #b45309;
+            --cream: #fffbeb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar for a classic feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--emerald-900);
+            border-radius: 10px;
+        }
+
+        .archive-card:hover {
+            border-left: 8px solid var(--gold-600);
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+
+<body class="text-emerald-950">
+
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-[100] border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 py-5 flex justify-between items-center">
+
+            <a href="index.html" class="flex flex-col group">
+                <span
+                    class="text-xl md:text-2xl font-bold heading-font text-emerald-900 tracking-tight transition group-hover:text-emerald-800">
+                    Raza Darul Ifta <span class="text-amber-700">wal Qaza</span>
+                </span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-emerald-600 font-semibold">
+                    Authentic Sunni Jurisprudence
+                </span>
+            </a>
+
+            <div class="hidden md:flex space-x-10 font-medium items-center text-emerald-900">
+                <a href="index.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Home</a>
+                <a href="about.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">About</a>
+                <a href="archive.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Fatwa
+                    Archive</a>
+                <a href="ask-question.html"
+                    class="bg-emerald-800 text-white px-6 py-2.5 rounded-sm hover:bg-emerald-900 transition-all shadow-md active:scale-95">
+                    Ask a Question
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-emerald-900 p-2 focus:outline-none">
+                <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-emerald-100 animate-in slide-in-from-top duration-300">
+            <div class="px-6 pt-2 pb-6 space-y-4 flex flex-col font-medium">
+                <a href="index.html" class="py-2 border-b border-emerald-50 text-emerald-900">Home</a>
+                <a href="about.html" class="py-2 border-b border-emerald-50 text-emerald-900">About</a>
+                <a href="archive.html" class="py-2 border-b border-emerald-50 text-emerald-900">Fatwa Archive</a>
+                <a href="ask-question.html"
+                    class="py-3 px-4 bg-emerald-800 text-white text-center rounded-sm shadow-sm">Ask
+                    a Question</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Optional: Change icon from hamburger to X
+            if (menu.classList.contains('hidden')) {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+            } else {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            }
+        });
+    </script>
+
+    <header class="bg-emerald-900 text-white py-16 px-6 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+        <div class="relative z-10" data-aos="fade-down">
+            <h1 class="heading-font text-4xl md:text-5xl mb-4 text-amber-100">The Knowledge Repository</h1>
+            <p class="text-emerald-100 max-w-2xl mx-auto opacity-80">Search through hundreds of verified rulings
+                categorized by the chapters of classical Fiqh.</p>
+
+            <div class="mt-8 max-w-xl mx-auto flex bg-white rounded-full p-2 shadow-2xl">
+                <input type="text" placeholder="Search by keyword, Mas'ala, or Fatwa ID..."
+                    class="w-full px-6 py-3 rounded-full text-emerald-900 focus:outline-none">
+                <button
+                    class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full transition">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- <main class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+        <aside class="lg:col-span-1" data-aos="fade-right">
+            <div class="sticky top-24">
+                <h3
+                    class="font-bold text-emerald-900 uppercase tracking-tighter mb-6 border-b-2 border-amber-500 inline-block">
+                    Categories</h3>
+                <ul class="space-y-3">
+                    <li><a href="#"
+                            class="flex justify-between items-center p-3 bg-white rounded hover:bg-emerald-800 hover:text-white transition group shadow-sm">
+                            <span>Kitab al-Taharah</span><span
+                                class="text-xs opacity-50 group-hover:opacity-100">42</span>
+                        </a></li>
+                    <li><a href="#"
+                            class="flex justify-between items-center p-3 bg-white rounded hover:bg-emerald-800 hover:text-white transition group shadow-sm">
+                            <span>Kitab al-Salah</span><span
+                                class="text-xs opacity-50 group-hover:opacity-100">128</span>
+                        </a></li>
+                    <li><a href="#"
+                            class="flex justify-between items-center p-3 bg-white rounded hover:bg-emerald-800 hover:text-white transition group shadow-sm">
+                            <span>Kitab al-Zakat</span><span
+                                class="text-xs opacity-50 group-hover:opacity-100">35</span>
+                        </a></li>
+                    <li><a href="#"
+                            class="flex justify-between items-center p-3 bg-white rounded hover:bg-emerald-800 hover:text-white transition group shadow-sm">
+                            <span>Family & Nikah</span><span
+                                class="text-xs opacity-50 group-hover:opacity-100">89</span>
+                        </a></li>
+                    <li><a href="#"
+                            class="flex justify-between items-center p-3 bg-white rounded hover:bg-emerald-800 hover:text-white transition group shadow-sm">
+                            <span>Modern Finance</span><span
+                                class="text-xs opacity-50 group-hover:opacity-100">54</span>
+                        </a></li>
+                </ul>
+
+                <div class="mt-12 p-6 bg-amber-50 border border-amber-100 rounded-xl">
+                    <h4 class="font-bold text-amber-900 mb-2">Notice</h4>
+                    <p class="text-xs leading-relaxed text-amber-800/80">Every Fatwa is specific to the context asked.
+                        For sensitive matters, please consult our Muftis directly via the "Ask a Question" form.</p>
+                </div>
+            </div>
+        </aside>
+
+        <div class="lg:col-span-3 space-y-6">
+
+            <div class="flex justify-between items-center mb-8 border-b border-emerald-100 pb-4">
+                <p class="text-sm text-emerald-700 font-medium tracking-wide">Showing <span
+                        class="text-amber-700">348</span> Fatwas</p>
+                <select class="bg-transparent text-sm border-none focus:ring-0 cursor-pointer text-emerald-800">
+                    <option>Sort by: Newest First</option>
+                    <option>Sort by: Oldest First</option>
+                    <option>Most Viewed</option>
+                </select>
+            </div>
+
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Salah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8842</span>
+                        <span class="text-xs text-gray-400">Published: Feb 12, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">The use
+                        of alcohol-based perfumes in Salah</h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">Is it permissible to apply perfumes that contain
+                        synthetic alcohol? Does it affect the validity of prayer according to the Hanafi Madhhab?</p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Salah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8839</span>
+                        <span class="text-xs text-gray-400">Published: Feb 10, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">Digital
+                        inheritance and social media accounts</h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">How should digital assets like monetized YouTube
+                        channels or crypto-wallets be distributed among heirs after the owner's passing?</p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <div class="pt-12 flex justify-center gap-2">
+                <button
+                    class="w-10 h-10 rounded border border-emerald-200 flex items-center justify-center hover:bg-emerald-900 hover:text-white transition">1</button>
+                <button class="w-10 h-10 rounded bg-emerald-900 text-white flex items-center justify-center">2</button>
+                <button
+                    class="w-10 h-10 rounded border border-emerald-200 flex items-center justify-center hover:bg-emerald-900 hover:text-white transition">3</button>
+                <span class="px-2">...</span>
+                <button
+                    class="px-4 h-10 rounded border border-emerald-200 flex items-center justify-center hover:bg-emerald-900 hover:text-white transition">Next</button>
+            </div>
+
+        </div>
+    </main> -->
+    <main class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+        <aside class="lg:col-span-1" data-aos="fade-right">
+            <div class="sticky top-24">
+                <h3
+                    class="font-bold text-emerald-900 uppercase tracking-tighter mb-6 border-b-2 border-amber-500 inline-block">
+                    Categories
+                </h3>
+
+                <!-- Categories will be auto-generated by JS -->
+                <ul id="dynamic-categories" class="space-y-3"></ul>
+
+                <div class="mt-12 p-6 bg-amber-50 border border-amber-100 rounded-xl">
+                    <h4 class="font-bold text-amber-900 mb-2">Notice</h4>
+                    <p class="text-xs leading-relaxed text-amber-800/80">
+                        Every Fatwa is specific to the context asked.
+                        For sensitive matters, please consult our Muftis directly via the "Ask a Question" form.
+                    </p>
+                </div>
+            </div>
+        </aside>
+
+        <div id="posts-wrapper" class="lg:col-span-3 space-y-6">
+
+            <div class="flex justify-between items-center mb-8 border-b border-emerald-100 pb-4">
+                <p class="text-sm text-emerald-700 font-medium tracking-wide">
+                    Showing <span id="results-count" class="text-amber-700">0</span> Fatwas
+                </p>
+
+                <select id="sort-select"
+                    class="bg-transparent text-sm border-none focus:ring-0 cursor-pointer text-emerald-800">
+                    <option value="newest">Sort by: Newest First</option>
+                    <option value="oldest">Sort by: Oldest First</option>
+                    <option value="views">Most Viewed</option>
+                </select>
+            </div>
+
+            <!-- 1 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Taharah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8860</span>
+                        <span class="text-xs text-gray-400">Published: Mar 05, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Tayammum in extreme cold weather
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Is it permissible to perform Tayammum when water is available but extremely cold and may cause
+                        illness?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1"
+                        onclick="window.location.href='fatwa.html'">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 2 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Salah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8861</span>
+                        <span class="text-xs text-gray-400">Published: Mar 04, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Praying with smartwatches displaying notifications
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Does receiving vibration notifications during Salah affect the validity or concentration of
+                        prayer?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 3 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Zakat" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8862</span>
+                        <span class="text-xs text-gray-400">Published: Mar 03, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Zakat on stock market investments
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        How should Zakat be calculated on long-term equity investments and dividend earnings?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 4 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Family & Nikah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8863</span>
+                        <span class="text-xs text-gray-400">Published: Mar 01, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Marriage without parental approval
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Is a Nikah contract valid if conducted without the explicit consent of the bride’s guardian?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 5 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Modern Finance" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8864</span>
+                        <span class="text-xs text-gray-400">Published: Feb 28, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Trading NFTs and digital collectibles
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Are non-fungible tokens considered valid digital assets in Islamic commercial jurisprudence?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 6 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Salah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8865</span>
+                        <span class="text-xs text-gray-400">Published: Feb 26, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Reciting from mobile during Taraweeh
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Can an Imam recite from a smartphone during Taraweeh prayer if he has not memorized the full
+                        Surah?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 7 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Taharah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8866</span>
+                        <span class="text-xs text-gray-400">Published: Feb 24, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Using hand sanitizers before prayer
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Are alcohol-based sanitizers considered najis, and do they affect the validity of Salah?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 8 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Modern Finance" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8867</span>
+                        <span class="text-xs text-gray-400">Published: Feb 22, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Halal status of affiliate marketing income
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Is earning commission through affiliate links permissible if the products sold are halal?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 9 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Family & Nikah" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8868</span>
+                        <span class="text-xs text-gray-400">Published: Feb 20, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Maintenance obligations after separation
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        What financial responsibilities remain upon the husband during a judicial separation period?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- 10 -->
+            <article
+                class="archive-card bg-white p-8 rounded-lg shadow-sm border border-emerald-50 transition-all duration-300 flex flex-col md:flex-row gap-6"
+                data-category="Kitab al-Zakat" data-aos="fade-up">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-1 rounded">ID:
+                            8869</span>
+                        <span class="text-xs text-gray-400">Published: Feb 18, 2026</span>
+                    </div>
+                    <h2 class="heading-font text-2xl text-emerald-900 mb-3 cursor-pointer hover:text-amber-700">
+                        Zakat eligibility for university students
+                    </h2>
+                    <p class="text-emerald-800/70 text-sm line-clamp-2">
+                        Can financially struggling students qualify as recipients of Zakat funds?
+                    </p>
+                </div>
+                <div class="md:w-32 flex items-center justify-end">
+                    <button
+                        class="text-amber-700 font-bold border-b-2 border-amber-700 hover:text-emerald-900 hover:border-emerald-900 transition pb-1">View
+                        Full</button>
+                </div>
+            </article>
+
+            <!-- Pagination -->
+            <div id="pagination" class="pt-12 flex justify-center gap-2"></div>
+
+        </div>
+    </main>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ===========================
+               CONFIG
+            ============================ */
+            const POSTS_PER_PAGE = 6;
+            const DEFAULT_SORT = "newest";
+
+            /* ===========================
+               CACHED SELECTORS
+            ============================ */
+            const searchInput = document.querySelector('header input[type="text"]');
+            const articles = Array.from(document.querySelectorAll('.archive-card'));
+            const categoryContainer = document.getElementById("dynamic-categories");
+            const paginationContainer = document.getElementById("pagination");
+            const sortSelect = document.getElementById("sort-select");
+            const resultsCount = document.getElementById("results-count");
+            const postsWrapper = document.getElementById("posts-wrapper");
+
+            /* ===========================
+               STATE
+            ============================ */
+            const state = {
+                allPosts: articles,
+                filteredPosts: [...articles],
+                currentPage: 1,
+                searchQuery: "",
+                activeCategories: new Set(),
+                sortBy: DEFAULT_SORT
+            };
+
+            /* ===========================
+               UTILITIES
+            ============================ */
+
+            const debounce = (fn, delay = 300) => {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => fn(...args), delay);
+                };
+            };
+
+            const getPostDate = (post) => {
+                const text = post.querySelector('.text-gray-400')?.innerText || "";
+                const match = text.match(/Published:\s*(.*)/);
+                return match ? new Date(match[1]) : new Date(0);
+            };
+
+            const getPostID = (post) => {
+                const idText = post.querySelector('.bg-emerald-100')?.innerText || "";
+                const match = idText.match(/ID:\s*(\d+)/);
+                return match ? parseInt(match[1]) : 0;
+            };
+
+            /* ===========================
+               CATEGORY GENERATION
+            ============================ */
+
+            function generateCategories() {
+                const map = {};
+
+                state.allPosts.forEach(post => {
+                    const cat = post.dataset.category;
+                    if (!cat) return;
+                    map[cat] = (map[cat] || 0) + 1;
+                });
+
+                const sorted = Object.entries(map).sort((a, b) => a[0].localeCompare(b[0]));
+                const fragment = document.createDocumentFragment();
+                categoryContainer.innerHTML = "";
+
+                sorted.forEach(([cat, count]) => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                <a href="#" data-category="${cat}"
+                class="flex justify-between items-center p-3 bg-white rounded hover:bg-emerald-800 hover:text-white transition group shadow-sm">
+                    <span>${cat}</span>
+                    <span class="text-xs opacity-50 group-hover:opacity-100">${count}</span>
+                </a>`;
+                    fragment.appendChild(li);
+                });
+
+                categoryContainer.appendChild(fragment);
+            }
+
+            /* ===========================
+               FILTER + SORT
+            ============================ */
+
+            function applyFilters(pushHistory = true) {
+
+                const q = state.searchQuery.toLowerCase();
+
+                state.filteredPosts = state.allPosts.filter(post => {
+                    const text = post.innerText.toLowerCase();
+                    const matchesSearch = text.includes(q);
+                    const cat = post.dataset.category;
+                    const matchesCategory = state.activeCategories.size === 0 ||
+                        state.activeCategories.has(cat);
+                    return matchesSearch && matchesCategory;
+                });
+
+                switch (state.sortBy) {
+                    case "newest":
+                        state.filteredPosts.sort((a, b) => getPostDate(b) - getPostDate(a));
+                        break;
+                    case "oldest":
+                        state.filteredPosts.sort((a, b) => getPostDate(a) - getPostDate(b));
+                        break;
+                    case "views":
+                        state.filteredPosts.sort((a, b) => getPostID(b) - getPostID(a));
+                        break;
+                }
+
+                state.currentPage = 1;
+
+                render();
+                if (pushHistory) updateURL();
+                savePreferences();
+            }
+
+            /* ===========================
+               RENDER
+            ============================ */
+
+            function render() {
+
+                const start = (state.currentPage - 1) * POSTS_PER_PAGE;
+                const end = start + POSTS_PER_PAGE;
+
+                state.allPosts.forEach(post => {
+                    post.style.display = "none";
+                    post.style.opacity = 0;
+                });
+
+                const visible = state.filteredPosts.slice(start, end);
+
+                visible.forEach(post => {
+                    post.style.display = "";
+                    requestAnimationFrame(() => {
+                        post.style.transition = "opacity .3s ease";
+                        post.style.opacity = 1;
+                    });
+                });
+
+                resultsCount.textContent = state.filteredPosts.length;
+
+                renderPagination();
+                renderEmptyState();
+                updateActiveCategoryStyles();
+            }
+
+            function renderPagination() {
+                paginationContainer.innerHTML = "";
+                const totalPages = Math.ceil(state.filteredPosts.length / POSTS_PER_PAGE);
+                if (totalPages <= 1) return;
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement("button");
+                    btn.textContent = i;
+                    btn.className = `w-10 h-10 rounded border flex items-center justify-center transition ${i === state.currentPage
+                        ? "bg-emerald-900 text-white"
+                        : "border-emerald-200 hover:bg-emerald-900 hover:text-white"
+                        }`;
+                    btn.addEventListener("click", () => {
+                        state.currentPage = i;
+                        render();
+                        updateURL();
+                    });
+                    paginationContainer.appendChild(btn);
+                }
+            }
+
+            function renderEmptyState() {
+                let empty = document.querySelector(".empty-state");
+
+                if (state.filteredPosts.length === 0) {
+                    if (!empty) {
+                        empty = document.createElement("div");
+                        empty.className = "empty-state text-center py-16 text-emerald-700";
+                        empty.innerHTML = "<h3 class='text-2xl font-bold'>No Fatwas Found</h3><p>Try adjusting filters.</p>";
+                        postsWrapper.appendChild(empty);
+                    }
+                } else {
+                    empty?.remove();
+                }
+            }
+
+            function updateActiveCategoryStyles() {
+                document.querySelectorAll('#dynamic-categories a').forEach(link => {
+                    const cat = link.dataset.category;
+                    if (state.activeCategories.has(cat)) {
+                        link.classList.add("bg-emerald-900", "text-white");
+                    } else {
+                        link.classList.remove("bg-emerald-900", "text-white");
+                    }
+                });
+            }
+
+            /* ===========================
+               URL STATE
+            ============================ */
+
+            function updateURL() {
+                const params = new URLSearchParams();
+                if (state.searchQuery) params.set("q", state.searchQuery);
+                if (state.activeCategories.size)
+                    params.set("category", [...state.activeCategories].join(","));
+                if (state.sortBy !== DEFAULT_SORT)
+                    params.set("sort", state.sortBy);
+
+                history.pushState(state, "", "?" + params.toString());
+            }
+
+            function restoreFromURL() {
+                const params = new URLSearchParams(location.search);
+                state.searchQuery = params.get("q") || "";
+                const cats = params.get("category");
+                if (cats) cats.split(",").forEach(c => state.activeCategories.add(c));
+                state.sortBy = params.get("sort") || DEFAULT_SORT;
+
+                searchInput.value = state.searchQuery;
+                sortSelect.value = state.sortBy;
+            }
+
+            window.addEventListener("popstate", () => {
+                state.activeCategories.clear();
+                restoreFromURL();
+                applyFilters(false);
+            });
+
+            /* ===========================
+               LOCAL STORAGE
+            ============================ */
+
+            function savePreferences() {
+                localStorage.setItem("archiveState", JSON.stringify({
+                    searchQuery: state.searchQuery,
+                    categories: [...state.activeCategories],
+                    sortBy: state.sortBy
+                }));
+            }
+
+            function restorePreferences() {
+                const saved = JSON.parse(localStorage.getItem("archiveState"));
+                if (!saved) return;
+                state.searchQuery = saved.searchQuery || "";
+                saved.categories?.forEach(c => state.activeCategories.add(c));
+                state.sortBy = saved.sortBy || DEFAULT_SORT;
+            }
+
+            /* ===========================
+               EVENTS
+            ============================ */
+
+            searchInput.addEventListener("input", debounce(e => {
+                state.searchQuery = e.target.value.trim();
+                applyFilters();
+            }));
+
+            categoryContainer.addEventListener("click", e => {
+                e.preventDefault();
+                const cat = e.target.closest("a")?.dataset.category;
+                if (!cat) return;
+
+                if (state.activeCategories.has(cat)) {
+                    state.activeCategories.delete(cat);
+                } else {
+                    state.activeCategories.add(cat);
+                }
+
+                applyFilters();
+            });
+
+            sortSelect.addEventListener("change", e => {
+                state.sortBy = e.target.value;
+                applyFilters();
+            });
+
+            /* ===========================
+               INIT
+            ============================ */
+
+            restorePreferences();
+            restoreFromURL();
+            generateCategories();
+            applyFilters(false);
+
+        });
+    </script>
+</body>
+
+</html>

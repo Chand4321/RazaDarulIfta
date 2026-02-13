@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Raza Darul Ifta wal Qaza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #064e3b;
+            --gold: #b45309;
+            --cream: #fffbeb;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--emerald);
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Decorative Mehrab (Arch) Shape */
+        .mehrab-shape {
+            clip-path: ellipse(100% 100% at 50% 100%);
+            background: var(--emerald);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(to bottom, #b45309, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-[100] border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 py-5 flex justify-between items-center">
+
+            <a href="index.html" class="flex flex-col group">
+                <span
+                    class="text-xl md:text-2xl font-bold heading-font text-emerald-900 tracking-tight transition group-hover:text-emerald-800">
+                    Raza Darul Ifta <span class="text-amber-700">wal Qaza</span>
+                </span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-emerald-600 font-semibold">
+                    Authentic Sunni Jurisprudence
+                </span>
+            </a>
+
+            <div class="hidden md:flex space-x-10 font-medium items-center text-emerald-900">
+                <a href="index.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Home</a>
+                <a href="about.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">About</a>
+                <a href="archive.html"
+                    class="hover:text-amber-700 transition relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-amber-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all">Fatwa
+                    Archive</a>
+                <a href="ask-question.html"
+                    class="bg-emerald-800 text-white px-6 py-2.5 rounded-sm hover:bg-emerald-900 transition-all shadow-md active:scale-95">
+                    Ask a Question
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-emerald-900 p-2 focus:outline-none">
+                <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-emerald-100 animate-in slide-in-from-top duration-300">
+            <div class="px-6 pt-2 pb-6 space-y-4 flex flex-col font-medium">
+                <a href="index.html" class="py-2 border-b border-emerald-50 text-emerald-900">Home</a>
+                <a href="about.html" class="py-2 border-b border-emerald-50 text-emerald-900">About</a>
+                <a href="archive.html" class="py-2 border-b border-emerald-50 text-emerald-900">Fatwa Archive</a>
+                <a href="ask-question.html"
+                    class="py-3 px-4 bg-emerald-800 text-white text-center rounded-sm shadow-sm">Ask
+                    a Question</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Optional: Change icon from hamburger to X
+            if (menu.classList.contains('hidden')) {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+            } else {
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            }
+        });
+    </script>
+
+    <header class="py-20 text-center px-4" data-aos="fade-down">
+        <span class="text-amber-700 font-bold tracking-[0.3em] uppercase text-xs">Our Heritage</span>
+        <h1 class="heading-font text-5xl md:text-7xl mt-4 italic">Preserving the <span
+                class="text-emerald-900 not-italic">Sacred Sciences</span></h1>
+    </header>
+
+    <section class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center pb-24">
+        <div class="relative" data-aos="fade-right">
+            <div class="absolute -top-4 -left-4 w-full h-full border-2 border-amber-200 -z-10 rounded-2xl"></div>
+            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800"
+                alt="Scholarly Books"
+                class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition duration-1000">
+        </div>
+        <div data-aos="fade-left">
+            <h2 class="heading-font text-4xl mb-6">Light of Knowledge</h2>
+            <p class="text-lg leading-relaxed mb-6 opacity-80">
+                Founded with the vision to provide authentic, moderate, and well-researched Islamic legal opinions
+                (Fatwa), **Raza Darul Ifta wal Qaza** stands as a sanctuary for those seeking clarity in an
+                ever-changing world.
+            </p>
+            <p class="text-lg leading-relaxed mb-8 opacity-80">
+                Our methodology is rooted in the classical **Ahlus Sunnah wal Jama'ah** tradition, specifically adhering
+                to the Hanafi school of jurisprudence while respecting the diversity of the four valid Madhahib.
+            </p>
+            <div class="grid grid-cols-2 gap-6 border-t border-emerald-100 pt-8">
+                <div>
+                    <h4 class="font-bold text-amber-700 uppercase text-xs tracking-widest mb-2">Our Mission</h4>
+                    <p class="text-sm">To provide Shariah-compliant solutions to modern complexities.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-amber-700 uppercase text-xs tracking-widest mb-2">Our Vision</h4>
+                    <p class="text-sm">To be a global beacon for judicial and spiritual guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-emerald-900 text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+
+        <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
+            <h2 class="heading-font text-4xl mb-16" data-aos="fade-up">Our Pillars of Ifta</h2>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 bg-amber-600/20 border border-amber-500/50 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl italic font-serif text-amber-400">
+                        01</div>
+                    <h3 class="heading-font text-xl mb-3">Authenticity</h3>
+                    <p class="text-emerald-100/60 text-sm leading-relaxed">Every Fatwa is backed by rigorous references
+                        from classical texts like Al-Hidayah and Fatawa Hindiyyah.</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 bg-amber-600/20 border border-amber-500/50 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl italic font-serif text-amber-400">
+                        02</div>
+                    <h3 class="heading-font text-xl mb-3">Contextualization</h3>
+                    <p class="text-emerald-100/60 text-sm leading-relaxed">We understand that modern challenges require
+                        a deep understanding of today’s social and financial systems.</p>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 bg-amber-600/20 border border-amber-500/50 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl italic font-serif text-amber-400">
+                        03</div>
+                    <h3 class="heading-font text-xl mb-3">Compassion</h3>
+                    <p class="text-emerald-100/60 text-sm leading-relaxed">Our aim is to facilitate (Taysir) for the
+                        Ummah, ensuring the Deen remains a source of ease and not hardship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-6xl mx-auto text-center">
+        <h2 class="heading-font text-4xl mb-4" data-aos="fade-up">The Council</h2>
+        <p class="text-amber-700 italic mb-16" data-aos="fade-up">Led by qualified Muftis and Judges (Qaza)</p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-emerald-50 group hover:bg-emerald-50 transition duration-500"
+                data-aos="fade-up">
+                <div class="w-24 h-24 bg-emerald-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-12 h-12 text-emerald-800" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="heading-font text-xl text-emerald-900 group-hover:text-amber-800 transition">Mufti-in-Chief
+                </h3>
+                <p class="text-xs uppercase tracking-widest text-emerald-600/50 mt-1">Specialist in Islamic Finance</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-emerald-50 group hover:bg-emerald-50 transition duration-500"
+                data-aos="fade-up" data-aos-delay="100">
+                <div class="w-24 h-24 bg-emerald-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-12 h-12 text-emerald-800" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="heading-font text-xl text-emerald-900 group-hover:text-amber-800 transition">Head of Qaza
+                </h3>
+                <p class="text-xs uppercase tracking-widest text-emerald-600/50 mt-1">Family Law & Arbitration</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-emerald-50 group hover:bg-emerald-50 transition duration-500"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="w-24 h-24 bg-emerald-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-12 h-12 text-emerald-800" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+                <h3 class="heading-font text-xl text-emerald-900 group-hover:text-amber-800 transition">Senior Mufti
+                </h3>
+                <p class="text-xs uppercase tracking-widest text-emerald-600/50 mt-1">Research & Modern Issues</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-emerald-950 text-emerald-100/30 py-10 text-center text-sm tracking-widest uppercase">
+        <p>&copy; 2026 Raza Darul Ifta wal Qaza</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>
